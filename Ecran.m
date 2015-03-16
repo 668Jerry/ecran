@@ -11,6 +11,8 @@
 @interface Ecran ()
 {
     UIViewController *uivcSelf;
+    CGFloat i; //cgfISPBar;
+    CGFloat p; //cgfPersonalHotspotBar;
 }
 @end
 
@@ -48,17 +50,22 @@
     if (uivcSelf.navigationController != nil) {
         n = uivcSelf.navigationController.navigationBar.frame.size.height;
     }
-    h = [[UIScreen mainScreen] bounds].size.height - [[UIApplication sharedApplication] statusBarFrame].size.height - t - n - [UIApplication sharedApplication].statusBarFrame.size.height;
-    b = [UIApplication sharedApplication].statusBarFrame.size.height;
-    if ([UIApplication sharedApplication].statusBarFrame.size.height == 20.0) {
-        //without Hotspot: 64
-        o =  b;
+    
+    h = [[UIScreen mainScreen] bounds].size.height - [[UIApplication sharedApplication] statusBarFrame].size.height - t - n;
+    s = [UIApplication sharedApplication].statusBarFrame.size.height;
+    o = s + n;
+    b = s + n;
+    if (s == 20.0) {
+        //o without Hotspot: 64
+        i = 20.0;
+        p = 0.0;
     } else {
-        //with Hotspot: 104
-        o = b + [UIApplication sharedApplication].statusBarFrame.size.height / 2.0;
+        //o with Hotspot: 84
+        i = 20.0;
+        p = 20.0;
     }
     NSLog(@"status bar height:%f",[UIApplication sharedApplication].statusBarFrame.size.height);
-    NSLog(@"width(w):%f, height(h):%f, tabbar(t):%f, navigationbar(n):%f, SuggestOffset(o): %f", w, h, t, n, o);
+    NSLog(@"width(w):%f, height(h):%f, status(s): %f, personalHotspot(p): %f, isp(i):%f, tabbar(t):%f, navigationbar(n):%f, suggestOffset(o): %f, ScreenBase(b): %f", w, h, s, p, i, t, n, o, b);
     return self;
 }
 
