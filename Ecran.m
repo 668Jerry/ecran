@@ -8,6 +8,12 @@
 
 #import "Ecran.h"
 
+@interface Ecran ()
+{
+    UIViewController *uivcSelf;
+}
+@end
+
 @implementation Ecran
 //+(id)getShare //Do not use singleton
 //{
@@ -20,7 +26,7 @@
 - (void) makeSuggestOffset {
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.0];
-    uivcSelf.view.center = CGPointMake(uivcSelf.view.center.x, uivcSelf.view.center.y - cgfSuggestOffset);
+    uivcSelf.view.center = CGPointMake(uivcSelf.view.center.x, uivcSelf.view.center.y - o);
     [UIView commitAnimations];
 }
 
@@ -33,26 +39,26 @@
 
 -(id)initWithViewController:(UIViewController *)uivcViewController {
     uivcSelf = uivcViewController;
-    cgfScreenWidth = [[UIScreen mainScreen] bounds].size.width;
-    cgfTabBarControllerHeight = 0;
+    w = [[UIScreen mainScreen] bounds].size.width;
+    h = 0;
     if (uivcSelf.tabBarController != nil) {
-        cgfTabBarControllerHeight = uivcSelf.tabBarController.tabBar.frame.size.height;
+        h = uivcSelf.tabBarController.tabBar.frame.size.height;
     }
-    cgfNavigationControllerHeight = 0;
+    n = 0;
     if (uivcSelf.navigationController != nil) {
-        cgfNavigationControllerHeight = uivcSelf.navigationController.navigationBar.frame.size.height;
+        n = uivcSelf.navigationController.navigationBar.frame.size.height;
     }
-    cgfScreenHeight = [[UIScreen mainScreen] bounds].size.height - [[UIApplication sharedApplication] statusBarFrame].size.height - cgfTabBarControllerHeight - cgfNavigationControllerHeight - [UIApplication sharedApplication].statusBarFrame.size.height;
-    cgfScreenHeightBase = [UIApplication sharedApplication].statusBarFrame.size.height;
+    h = [[UIScreen mainScreen] bounds].size.height - [[UIApplication sharedApplication] statusBarFrame].size.height - t - n - [UIApplication sharedApplication].statusBarFrame.size.height;
+    b = [UIApplication sharedApplication].statusBarFrame.size.height;
     if ([UIApplication sharedApplication].statusBarFrame.size.height == 20.0) {
         //without Hotspot: 64
-        cgfSuggestOffset =  cgfScreenHeightBase;
+        cgfSuggestOffset =  b;
     } else {
         //with Hotspot: 104
-        cgfSuggestOffset = cgfScreenHeightBase + [UIApplication sharedApplication].statusBarFrame.size.height / 2.0;
+        cgfSuggestOffset = b + [UIApplication sharedApplication].statusBarFrame.size.height / 2.0;
     }
     NSLog(@"status bar height:%f",[UIApplication sharedApplication].statusBarFrame.size.height);
-    NSLog(@"width:%f, height:%f, tabbar:%f, navigationbarcontroller:%f, SuggestOffset: %f", cgfScreenWidth, cgfScreenHeight, cgfTabBarControllerHeight, cgfNavigationControllerHeight, cgfSuggestOffset);
+    NSLog(@"width(w):%f, height(h):%f, tabbar(t):%f, navigationbar(n):%f, SuggestOffset(o): %f", w, h, t, n, o);
     return self;
 }
 
