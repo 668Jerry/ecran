@@ -13,15 +13,25 @@ ex:
   
   Screen Height:
     CGFloat h; //cgfScreenHeight;
+
+  Screen Status Bar (Status Bar Height):
+    CGFloat s; //cgfStatusBarHeight;
   
-  Screen Height Base (Status Bar Height + person hotspot Height):
-    CGFloat b; //cgfScreenHeightBase;
-  
-  Screen Suggest Offset (Height of person hotspot):
-    CGFloat o; //cgfSuggestOffset;
+  Screen Personal Hotspot Bar (Personal Hotspot Bar Height):
+    CGFloat p; //cgfPersonalHotspotBarHeight;
+
+  Screen ISP Bar (ISP Bar Height):
+    CGFloat i; //cgfISPBarHeight;
   
   Screen Tab Bar Height:
     CGFloat t; //cgfTabBarControllerHeight;
   
   Screen Navigation Bar Height:
     CGFloat n; //cgfNavigationControllerHeight;
+
+  Screen Suggest Offset (Height of person hotspot + navigation Bar):
+    CGFloat o; //cgfSuggestOffset;
+
+  Screen Height Base (Status Bar Height + Navigation Bar Height):
+    CGFloat b; //cgfScreenHeightBase;
+  
