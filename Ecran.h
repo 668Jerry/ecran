@@ -13,10 +13,11 @@
 {
     CGFloat w; //cgfScreenWidth;
     CGFloat h; //cgfScreenHeight;
-    CGFloat b; //cgfScreenHeightBase;
+    CGFloat s; //cgfScreenStatusBarIncludeISPBar;
     CGFloat o; //cgfSuggestOffset;
     CGFloat t; //cgfTabBarControllerHeight;
     CGFloat n; //cgfNavigationControllerHeight;
+    CGFloat b; //cgfScreenBase;
 }
 
 -(id)initWithViewController:(UIViewController *)uivcViewController;
