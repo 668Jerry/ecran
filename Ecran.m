@@ -52,10 +52,10 @@
     b = [UIApplication sharedApplication].statusBarFrame.size.height;
     if ([UIApplication sharedApplication].statusBarFrame.size.height == 20.0) {
         //without Hotspot: 64
-        cgfSuggestOffset =  b;
+        o =  b;
     } else {
         //with Hotspot: 104
-        cgfSuggestOffset = b + [UIApplication sharedApplication].statusBarFrame.size.height / 2.0;
+        o = b + [UIApplication sharedApplication].statusBarFrame.size.height / 2.0;
     }
     NSLog(@"status bar height:%f",[UIApplication sharedApplication].statusBarFrame.size.height);
     NSLog(@"width(w):%f, height(h):%f, tabbar(t):%f, navigationbar(n):%f, SuggestOffset(o): %f", w, h, t, n, o);
