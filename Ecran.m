@@ -53,7 +53,6 @@
     
     h = [[UIScreen mainScreen] bounds].size.height - [[UIApplication sharedApplication] statusBarFrame].size.height - t - n;
     s = [UIApplication sharedApplication].statusBarFrame.size.height;
-    o = s + n;
     b = s + n;
     if (s == 20.0) {
         //o without Hotspot: 64
@@ -64,6 +63,7 @@
         i = 20.0;
         p = 20.0;
     }
+    o = p + n;
     NSLog(@"status bar height:%f",[UIApplication sharedApplication].statusBarFrame.size.height);
     NSLog(@"width(w):%f, height(h):%f, status(s): %f, personalHotspot(p): %f, isp(i):%f, tabbar(t):%f, navigationbar(n):%f, suggestOffset(o): %f, ScreenBase(b): %f", w, h, s, p, i, t, n, o, b);
     return self;
