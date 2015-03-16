@@ -11,17 +11,15 @@
 
 @interface Ecran : NSObject
 {
-    CGFloat cgfW;
-    
-    CGFloat cgfScreenWidth;
-    CGFloat cgfScreenHeight;
-    CGFloat cgfScreenHeightBase;
-    CGFloat cgfSuggestOffset;
-    
-    CGFloat cgfTabBarControllerHeight;
-    CGFloat cgfNavigationControllerHeight;
-    UIViewController *uivcSelf;
+    CGFloat w; //cgfScreenWidth;
+    CGFloat h; //cgfScreenHeight;
+    CGFloat b; //cgfScreenHeightBase;
+    CGFloat o; //cgfSuggestOffset;
+    CGFloat t; //cgfTabBarControllerHeight;
+    CGFloat n; //cgfNavigationControllerHeight;
 }
+
+-(id)initWithViewController:(UIViewController *)uivcViewController;
 
 @end
 
